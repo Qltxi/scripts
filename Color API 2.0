@@ -157,23 +157,23 @@ end
 
 fixed library lol
 
-spawn(function()
+task.spawn(function()
 	colorAPI.colorObbyBox(colorAPI.transformToColor3(BrickColor.new("Teal")))
 end)
 
-spawn(function()
+task.spawn(function()
 	colorAPI.colorObbyBricks(colorAPI.transformToColor3(BrickColor.new("Really red")))
 end)
 
-spawn(function()
+task.spawn(function()
 	colorAPI.colorAdminDivs(colorAPI.transformToColor3(BrickColor.new("Dark stone grey")))
 end)
 
-spawn(function()
+task.spawn(function()
 	colorAPI.colorPads(colorAPI.transformToColor3(BrickColor.new("Bright green")))
 end)
 
-spawn(function()
+task.spawn(function()
 	colorAPI.colorBuildingBricks({
 		DarkStoneGrey = colorAPI.transformToColor3(BrickColor.new("Dark stone grey")),
 		DeepBlue = colorAPI.transformToColor3(BrickColor.new("Deep blue")),
@@ -187,7 +187,7 @@ spawn(function()
 	})
 end)
 
-spawn(function()
+task.spawn(function()
 	colorAPI.colorHouse({
 		wallsC = colorAPI.transformToColor3(BrickColor.new("Brick yellow")),
 		baseC = colorAPI.transformToColor3(BrickColor.new("Bright green")),
@@ -205,9 +205,13 @@ end)
 -------------------------------------------------------------------- BASIC API STUFF HERE --------------------------------------------------------------------
 
 game:GetService("Players"):Chat("gear me 00000000000000000018474459")
-		wait(1)
-		game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack.PaintBucket)
-		wait(0.50)
+		local Backpack = game.Players.LocalPlayer:FindFirstChildOfClass("Backpack")
+        game.Players.LocalPlayer.Backpack:WaitForChild("PaintBucket")
+        for _, v in ipairs(Backpack:GetChildren()) do
+            v.Parent = game.Players.LocalPlayer.Character
+            v:Activate()
+        end
+        task.wait(.1)
 		coroutine.wrap(function()
 			colorAPI.colorHouse({
 				wallsC = colorAPI.transformToColor3(BrickColor.new("Brick yellow")),
@@ -220,7 +224,7 @@ game:GetService("Players"):Chat("gear me 00000000000000000018474459")
 				chiC = colorAPI.transformToColor3(BrickColor.new("Sand red"))
 			})
 		end)()
-    spawn(function()
+    task.spawn(function()
 	colorAPI.colorBuildingBricks({
 		DarkStoneGrey = colorAPI.transformToColor3(BrickColor.new("Dark stone grey")),
 		DeepBlue = colorAPI.transformToColor3(BrickColor.new("Deep blue")),
@@ -234,18 +238,18 @@ game:GetService("Players"):Chat("gear me 00000000000000000018474459")
 	})
 end)
 		colorAPI.color(game.Workspace.Terrain["_Game"].Workspace["Baseplate"], colorAPI.transformToColor3(BrickColor.new("Bright green")))
-		spawn(function()
+		task.spawn(function()
 			colorAPI.colorObbyBox(colorAPI.transformToColor3(BrickColor.new("Teal")))
 		end)
-		spawn(function()
+		task.spawn(function()
 			colorAPI.colorObbyBricks(colorAPI.transformToColor3(BrickColor.new("Really red")))
 		end)
-		spawn(function()
+		task.spawn(function()
 			colorAPI.colorAdminDivs(colorAPI.transformToColor3(BrickColor.new("Dark stone grey")))
 		end)
-		spawn(function()
+		task.spawn(function()
 			colorAPI.colorPads(colorAPI.transformToColor3(BrickColor.new("Bright green")))
 		end)
 wait(0.6)
-game.Players:Chat("ungear 000000000000000000000000000000000000000000000000000000000 me "..math.random(99999))
+game.Players:Chat("ungear                                                                                               me fuck "..math.random(99999))
 --nil
